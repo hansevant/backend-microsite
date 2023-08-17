@@ -12,21 +12,23 @@ datasource db {
 
 model User {
   @@map("users")
-  id        Int      @id @default(autoincrement())
-  userId    String   @unique
+  id        Int      @id
   fullname  String
   address   String
   password  String
-  userBalance UserBalance[]
+  userBalances UserBalance[]
   createdAt DateTime  @default(now())
 }
 
 model UserBalance {
   @@map("user_balances")
   id        Int      @id @default(autoincrement())
-  user    User @relation(fields: [userId], references: [userId], onDelete: Cascade)
-  userId  String   // Change the data type to String
-  address   String
-  password  String
+  user    User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId  Int 
+  va   Int
+  balance  String
+  invPack String
   createdAt DateTime  @default(now())
+
+  @@unique([userId])
 }

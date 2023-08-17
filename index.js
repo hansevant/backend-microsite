@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv"
+import userRoutes from "./routes/users.js"
 dotenv.config()
 // import router from "./routes/routes.js";
 // import fileUpload from "express-fileupload";
@@ -17,6 +18,8 @@ app.get('/', async (req, res) => {
       message: 'Traveloka Hotel Ranking API',
     });
 });
+
+app.use('/users', userRoutes)
 
 app.use((req, res, next) => {
   next(error.NotFound());
