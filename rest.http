@@ -1,6 +1,12 @@
+### 
+GET http://localhost:5000/users/
+### 
+GET http://localhost:5000/users/1122113
+### Post
 POST http://localhost:5000/users
 Content-Type: application/json
+
 {
- "id" : 123,
+ "id" : 1122113,
  "password" : "password"   
 }

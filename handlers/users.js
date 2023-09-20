@@ -20,9 +20,10 @@ const prisma = new PrismaClient();
 
 export const login = async(req, res) =>{
   const password = req.body.password
+  const intId = +req.body.id
   const user = await prisma.user.findUnique({
     where:{
-      id:req.body.id
+      id:intId
     }
   })
 
@@ -34,6 +35,21 @@ export const login = async(req, res) =>{
   const address = user.address
   const date = user.createdAt
   res.status(200).json({data : {id,name,address,date},msg:"Login Success"})
+}
+
+
+
+export const index = async(req, res) => {
+
+  const user = await prisma.user.findMany({
+    include: {userBalances:true}
+  })
+
+  return res.json({
+    status: 'success',
+    message : 'get all users',
+    data : user
+  })
 }
 
 export const show = async(req, res) => {
@@ -54,7 +70,7 @@ export const show = async(req, res) => {
   }
   return res.json({
     status: 'success',
-    message : '-',
+    message : 'get user',
     data : user
   })
 }
