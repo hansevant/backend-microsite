@@ -8,19 +8,19 @@ async function main() {
 
   const user = await prisma.user.create({
     data: {
-      id: 5377113,
-      fullname: 'Louis William',
-      address: 'Louisville',
+      id: 5377114,
+      fullname: 'Hans William',
+      address: 'Hansville',
       password: hashedPassword,
       userBalances: {
         create: [
           {
-                va: 224496,
+                va: 124496,
                 balance: '49.99',
                 invPack: 'DPLK PSU'
           },
           {
-                va: 214556,
+                va: 114556,
                 balance: '19.99',
                 invPack: 'DPLK PSU'
           },

@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv"
 import userRoutes from "./routes/users.js"
+import contactRoutes from "./routes/contact.js"
 dotenv.config()
 // import router from "./routes/routes.js";
 // import fileUpload from "express-fileupload";
@@ -15,11 +16,12 @@ app.use(express.static("public"));
 app.get('/', async (req, res) => {
     res.send({
       status: 'success',
-      message: 'Traveloka Hotel Ranking API',
+      message: 'API TEST',
     });
 });
 
 app.use('/users', userRoutes)
+app.use('/contact', contactRoutes)
 
 app.use((req, res, next) => {
   next(error.NotFound());

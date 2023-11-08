@@ -30,3 +30,15 @@ model UserBalance {
   invPack String
   createdAt DateTime  @default(now())
 }
+
+model Form{
+  @@map("forms")
+  id  Int @id @default(autoincrement())
+  isClient Boolean
+  firstName String
+  lastName String
+  email String
+  phone String
+  typeAssistance String
+  message String
+}
