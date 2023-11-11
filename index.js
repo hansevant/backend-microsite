@@ -3,6 +3,8 @@ import cors from "cors";
 import dotenv from "dotenv"
 import userRoutes from "./routes/users.js"
 import contactRoutes from "./routes/contact.js"
+import faqRoutes from "./routes/faq.js"
+import testiRoutes from "./routes/testi.js"
 dotenv.config()
 // import router from "./routes/routes.js";
 // import fileUpload from "express-fileupload";
@@ -22,6 +24,8 @@ app.get('/', async (req, res) => {
 
 app.use('/users', userRoutes)
 app.use('/contact', contactRoutes)
+app.use('/faq', faqRoutes)
+app.use('/testi', testiRoutes)
 
 app.use((req, res, next) => {
   next(error.NotFound());

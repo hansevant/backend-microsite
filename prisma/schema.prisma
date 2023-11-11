@@ -41,4 +41,24 @@ model Form{
   phone String
   typeAssistance String
   message String
+  createdAt DateTime  @default(now())
+}
+
+model Testimonial{
+  @@map("testimonials")
+  id Int @id @default(autoincrement())
+  name String
+  position String
+  testi String
+  img String @default("https://i.pinimg.com/originals/7c/c7/a6/7cc7a630624d20f7797cb4c8e93c09c1.png")
+  star Int 
+  createdAt DateTime  @default(now())
+}
+
+model Faq{
+  @@map("faqs")
+  id Int @id @default(autoincrement())
+  question String
+  answer String
+  createdAt DateTime  @default(now())
 }
